@@ -17,6 +17,11 @@ import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import { MoviesContext } from "../../contexts/moviesContext";
 
+//import CancelIcon from '@mui/icons-material/Cancel';
+import CancelIcon from "@material-ui/icons/Cancel";
+
+
+
 
 
 const useStyles = makeStyles({
@@ -31,36 +36,70 @@ export default function MovieCard({ movie, action }) {
     const classes = useStyles();
   const { favorites, addToFavorites } = useContext(MoviesContext);
 
-  if (favorites.find((id) => id === movie.id)) {
+  if (favorites.find((id) => id === movie.id)) 
+  {
     movie.favorite = true;
-  } else {
-    movie.favorite = false
+  } 
+  else 
+  {
+    movie.favorite = false;
   }
 
   const handleAddToFavorite = (e) => {
     e.preventDefault();
     addToFavorites(movie);
   };
+  
+  //DISLIKED
+  const { dislikedMovies, addToDisliked } = useContext(MoviesContext);
+  if (dislikedMovies.find((id) => id === movie.id)) 
+  {
+    movie.dislike = true;
+  } else
+  {
+    movie.dislike = false;
+  }
+  const handleAddToDisliked = (e) => {
+    e.preventDefault();
+    addToDisliked(movie);
+  };
+
+
 
 
 
   return (
     <Card className={classes.card}>
-       <CardHeader
-      className={classes.header}
+
+       <CardHeader className={classes.header}
+
       avatar={
-        movie.favorite ? (
+        movie.favorite? (
           <Avatar className={classes.avatar}>
             <FavoriteIcon />
           </Avatar>
+        ) : null 
+        ||
+        movie.dislike ? (
+          <Avatar className={classes.avatar}>
+            <CancelIcon />
+          </Avatar>
         ) : null
+        
       }
+
       title={
         <Typography variant="h5" component="p">
           {movie.title}{" "}
         </Typography>
       }
+
+
+
     />
+
+
+
       <CardMedia
         className={classes.media}
         image={
