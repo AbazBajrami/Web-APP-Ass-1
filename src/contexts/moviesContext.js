@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, createContext, useReducer } from "react";
+import {getPopularMovies} from '../api/tmdb-api'
 
 
+export const MoviesContext = createContext(null);
 
-export const MoviesContext = React.createContext(null);
+const MoviesContextProvider = (props) => 
 
-const MoviesContextProvider = (props) => {
+{
+
+
     const [myReviews, setMyReviews] = useState( {} ) 
     //add dislike
     const [dislikedMovies, setDislike] = useState( [] )
+
     const addToDisliked = (movie) => {
       let newDislikedMovie = [];
       if(!dislikedMovies.includes(movie.id)){
@@ -16,6 +21,8 @@ const MoviesContextProvider = (props) => {
       setDislike(newDislikedMovie)
     };
 
+
+    //Favs
     const [favorites, setFavorites] = useState( [] )
     const addToFavorites = (movie) => {
     let newFavorites = [];
@@ -46,6 +53,11 @@ const MoviesContextProvider = (props) => {
   const addReview = (movie, review) => {
     setMyReviews( {...myReviews, [movie.id]: review } )
   };
+
+
+
+
+
 
  return (
     <MoviesContext.Provider
