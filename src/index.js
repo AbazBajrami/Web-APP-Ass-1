@@ -12,6 +12,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import dislikedMoviesPage from "./pages/dislikedMoviesPage"; // import disliked movies page
 import PopularMoviesPage from "./pages/popularMoviesPage"; // import popular movies page
+import TopRatedMoviesPage from "./pages/topRatedMoviesPage"; // import popular movies page
+
 
 
 
@@ -38,6 +40,7 @@ const App = () => {
 
 
         <Route exact path="/movies/popularMovies" component={PopularMoviesPage} />
+        <Route exact path="/movies/topMovies" component={TopRatedMoviesPage} /> 
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route exact path="/movies/disliked" component={dislikedMoviesPage} /> 
 
