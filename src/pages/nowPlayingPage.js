@@ -20,7 +20,7 @@ const NowPlayingMoviesPage = () => {
       const movies = data.results;   
       return (
         <PageTemplate
-          title="Top Rated Movies"
+          title="Now Playing Movies"
           movies={movies}
           action={(movie) => {
             return (

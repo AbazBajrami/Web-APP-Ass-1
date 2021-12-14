@@ -13,7 +13,7 @@ import { getPopularMovies } from "../api/tmdb-api";
 const PopularMoviesPage = () => {
     //const [page, setPage] = React.useState(1);
     // const handleChange = (event, value) => setPage(value); };
-    const {  data, error, isLoading, isError }  = useQuery('popular', getPopularMovies)
+    const {  data, error, isLoading, isError }  = useQuery('popularMovies', getPopularMovies)
 
    
 
