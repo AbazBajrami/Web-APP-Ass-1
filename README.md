@@ -19,18 +19,18 @@ Name: [Abaz Barami]
 
 ### UI Design.
 The following Image is the Popular movies page. The home page is the same as this one, bar only a few movies listed near the end. 
-![](./images/PopularMovies.JPG)
+![](./src/images/PopularMovies.JPG)
 
 
 This is the disliked movies page. When you dislike a movie, it gets added to this page. You can also undislike movies.
-![ ](./images/DislikedMovies.JPG)
+![ ](./src/images/DislikedMovies.JPG)
 
 
 This is the top rated movies.
-![ ](./images/TopRated.JPG)
+![ ](./src/images/TopRated.JPG)
 
 This is the now playing movies.
-![ ](./images/NowPlaying.JPG)
+![ ](./src/images/NowPlaying.JPG)
 
 
 ### Routing.
