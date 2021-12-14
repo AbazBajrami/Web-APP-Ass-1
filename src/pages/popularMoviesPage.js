@@ -5,11 +5,17 @@ import Spinner from '../components/spinner'
 import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
 import AddToDislikedIcon from '../components/cardIcons/addToDisliked'
 import { getPopularMovies } from "../api/tmdb-api";
+//import Pagination from "@material-ui/lab/Pagination";
+//import SiteHeader from "../components/siteHeader";
+
 
 
 const PopularMoviesPage = () => {
+    //const [page, setPage] = React.useState(1);
+    // const handleChange = (event, value) => setPage(value); };
     const {  data, error, isLoading, isError }  = useQuery('popular', getPopularMovies)
 
+   
 
     if (isLoading) {
         return <Spinner />
@@ -23,6 +29,8 @@ const PopularMoviesPage = () => {
     
     
       return (
+          
+        
         <PageTemplate
           title="Popular Movies"
           movies={movies}
@@ -32,10 +40,18 @@ const PopularMoviesPage = () => {
                <AddToFavoritesIcon movie={movie} /> 
             <AddToDislikedIcon movie={movie} />
               </>
+
             );
           }}
-        />
+          />
+
+
+          //<Pagination count={data.total_pages} style={{position: 'absolute' , left:'50%',transform:'translate(-50%)'} } page={page} onChange={handleChange}/>
+
+        
+
       );
+
 
 };
 
